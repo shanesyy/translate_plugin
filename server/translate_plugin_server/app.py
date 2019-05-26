@@ -15,4 +15,5 @@ def main(port):
     tornado.ioloop.IOLoop.current().start()
 
 if __name__ == '__main__':
+    print("start the service")
     main(port=12000)

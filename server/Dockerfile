@@ -4,7 +4,6 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential \
     curl \
     sudo \
     ca-certificates \
-    gcc \
     make \
     pkg-config \
     python3 \
@@ -18,6 +17,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential \
     vim \
     && apt-get autoremove -y && apt-get clean
 
+ENV PYTHONIOENCODING utf-8
 COPY requirements.txt /etc/requirements.txt
 
 RUN python3.6 -m pip install pip

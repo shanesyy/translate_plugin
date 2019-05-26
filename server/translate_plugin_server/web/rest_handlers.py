@@ -6,18 +6,18 @@ import utils.translate
 
 class MyTranslator(tornado.web.RequestHandler):
     async def post(self, *args, **kwargs):
+        print(self.request.body)
         data = tornado.escape.json_decode(self.request.body)
         text = data.get('text', '')
         src = data.get('src', '')
         dst = data.get('dst', 'en')
-
         successful = True
 
         if not text:
             successful = False
         else:
             try:
-                res = utils.translate(text, src, dst)
+                res = utils.translate.get_translation(text, src, dst)
             except:
                 res = 'The query is not recognized.'
                 successful = False

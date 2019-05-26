@@ -16,7 +16,7 @@ def get_translation(word, src, dest='en'):
     if res.extra_data['all-translations']:
         for item in res.extra_data['all-translations']:
             translation['from_google'].append((item[0], [i[:2]+i[3:] for i in item[2]]))
-    if len(translation['from_google']) <= 2:
+    if len(translation['from_google']) <= 1:
         text = res.text
         # datamuse only support english similar words right now
         if dest == 'en':

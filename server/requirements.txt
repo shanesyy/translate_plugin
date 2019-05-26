@@ -1,0 +1,4 @@
+tornado
+hyper
+googletrans
+python-datamuse

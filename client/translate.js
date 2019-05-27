@@ -4,36 +4,25 @@ var translateServiceUrl = "http://localhost:12000/translate_service"
 // to respond to the message sent by the popup to the page, so that
 // the page can respond with the selected text.
 
-chrome.extension.onRequest.addListener(
+chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
         var googleDocument = googleDocsUtil.getGoogleDocument();
         console.log("The selected text is: " + googleDocument.selectedText);
-        data = {"text": googleDocument.selectedText, "dst": "en"};
-        $.ajax({
-            type: "POST",
-            url: translateServiceUrl,
-            contentType: "application/json;charset=utf-8",
-            data: JSON.stringify(data),
-            dataType: "json",
-            success: function(response) {
-                console.log(response);
-                sendResponse(response);
-            }
-        });
+        if (googleDocument.selectedText != '') {
+            data = {"text": googleDocument.selectedText, "dst": "en"};
+            $.ajax({
+                type: "POST",
+                url: translateServiceUrl,
+                contentType: "application/json;charset=utf-8",
+                data: JSON.stringify(data),
+                dataType: "json",
+                success: function(response) {
+                    console.log(response);
+                    // sendResponse(response);
+                }
+            });
+        } else {
+            console.log("Empty target.");
+            // sendResponse("Empty target.");
+        }
     }) ;
-
-
-// function getCSRFToken() {
-//     var cookies = document.cookie.split(";");
-//     for (var i = 0; i < cookies.length; i++) {
-//         if (cookies[i].startsWith("csrftoken=")) {
-//             return cookies[i].substring("csrftoken=".length, cookies[i].length);
-//         }
-//     }
-//     return "unknown";
-// }
-
-// function translationHandler(response) {
-//     console.log(response);
-//     sendResponse(response);
-// }

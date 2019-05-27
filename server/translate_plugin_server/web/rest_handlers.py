@@ -2,7 +2,7 @@ import tornado.escape
 import tornado.web
 from web import http_codes
 import sys
-
+from hyper.http20.exceptions import StreamResetError
 import utils.translate
 
 class MyTranslator(tornado.web.RequestHandler):
@@ -20,6 +20,9 @@ class MyTranslator(tornado.web.RequestHandler):
             successful = False
         else:
             try:
+                res = utils.translate.get_translation(text, src, dst)
+            except StreamResetError as e:
+                print(e)
                 res = utils.translate.get_translation(text, src, dst)
             except:
                 res = 'The query is not recognized.'

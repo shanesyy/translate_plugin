@@ -1,0 +1,21 @@
+{
+    "name": "Auto text translator for browser",
+    "version": "1.0",
+    "description": "Auto translator for text edit in browser",
+    "content_scripts": [
+        {
+          "js": ["jquery.min.js", "googleDocsUtil.js", "translate.js"],
+          "matches": ["https://docs.google.com/document/*"],
+          "run_at": "document_idle"
+        }
+    ],
+    "permissions" : [
+        "declarativeContent",
+        "activeTab",
+        "http://localhost/*"
+    ],
+    "browser_action": {
+        "default_popup": "popup.html"
+    },
+    "manifest_version": 2
+}

@@ -18,11 +18,12 @@ chrome.runtime.onMessage.addListener(
                 dataType: "json",
                 success: function(response) {
                     console.log(response);
-                    // sendResponse(response);
+                    sendResponse(response);
                 }
             });
         } else {
             console.log("Empty target.");
-            // sendResponse("Empty target.");
+            sendResponse("Empty target.");
         }
+        return true;
     }) ;

@@ -9,6 +9,9 @@
           "run_at": "document_idle"
         }
     ],
+    "web_accessible_resources": [
+        "result.html"
+    ],
     "permissions" : [
         "declarativeContent",
         "activeTab",
@@ -16,7 +19,7 @@
     ],
     "background": {
         "scripts": ["background.js"],
-        "persistent": false
+        "persistent": true
     },
     "commands": {
         "translate": {

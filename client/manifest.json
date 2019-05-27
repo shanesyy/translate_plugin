@@ -10,16 +10,18 @@
         }
     ],
     "web_accessible_resources": [
-        "result.html"
+        "result.html",
+        "trans.png"
     ],
     "permissions" : [
         "declarativeContent",
         "activeTab",
+        "notifications",
         "http://localhost/*"
     ],
     "background": {
         "scripts": ["background.js"],
-        "persistent": true
+        "persistent": false
     },
     "commands": {
         "translate": {

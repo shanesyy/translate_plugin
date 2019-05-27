@@ -10,7 +10,8 @@ def get_translation(word, src, dest='en'):
     else:
         res = translator.translate(word, dest=dest)
     translation = {}
-    translation['trans'] = res.text
+    translation['target'] = word
+    translation['result'] = res.text
     translation['from_google'] = []
     translation['extra_similarity'] = []
     if res.extra_data['all-translations']:

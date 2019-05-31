@@ -5,7 +5,7 @@
     "content_scripts": [
         {
           "js": ["jquery.min.js", "googleDocsUtil.js", "translate.js"],
-          "matches": ["https://docs.google.com/document/*"],
+          "matches": ["*://*/*"],
           "run_at": "document_idle"
         }
     ],

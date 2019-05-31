@@ -6,10 +6,17 @@ var translateServiceUrl = "http://localhost:12000/translate_service"
 
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse) {
-        var googleDocument = googleDocsUtil.getGoogleDocument();
-        console.log("The selected text is: " + googleDocument.selectedText);
-        if (googleDocument.selectedText != '') {
-            data = {"text": googleDocument.selectedText, "dst": "en"};
+        var target;
+        var curUrl = window.location.href;
+        if (curUrl.startsWith("https://docs.google.com/document")) {
+            var googleDocument = googleDocsUtil.getGoogleDocument();
+            target = googleDocument.selectedText;
+        } else {
+            target = window.getSelection().toString();
+        }
+        console.log("The selected text is: " + target);
+        if (target != '') {
+            data = {"text": target, "dst": "en"};
             $.ajax({
                 type: "POST",
                 url: translateServiceUrl,

@@ -24,7 +24,7 @@ def get_translation(word, src, dest='en'):
             similars = similar_finder.words(ml=text, max=4)
             for item in similars:
                 translation['extra_similarity'].append([item['word'], 
-                                                     [i for i in item['tags'] if i != 'syn'], 
+                                                     [i for i in item.get("tags", []) if i != 'syn'], 
                                                      item['score']])
     return translation
 

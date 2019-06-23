@@ -4,7 +4,7 @@
     "description": "Auto translator for text edit in browser",
     "content_scripts": [
         {
-          "js": ["jquery.min.js", "googleDocsUtil.js", "translate.js"],
+          "js": ["jquery.min.js", "googleDocsUtil.js", "translate.js", "markSelection.js"],
           "matches": ["*://*/*"],
           "run_at": "document_idle"
         }

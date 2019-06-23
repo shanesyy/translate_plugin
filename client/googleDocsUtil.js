@@ -94,6 +94,7 @@ var googleDocsUtil = function() {
             nodes: nodes,
             text: text,
             selectedText: selectedText,
+            selectedRect: selectionRect,
             caret: {
                 index: caretIndex,
                 lineIndex: caretLineIndex,

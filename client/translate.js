@@ -24,7 +24,12 @@ chrome.runtime.onMessage.addListener(
                 data: JSON.stringify(data),
                 dataType: "json",
                 success: function(response) {
-                    console.log(response);
+                    if (curUrl.startsWith("https://docs.google.com/document")) {
+                        markGoogleDoc(googleDocument, response);
+                    }
+                    else {
+                        markSelection(response);
+                    }
                     sendResponse(response);
                 }
             });

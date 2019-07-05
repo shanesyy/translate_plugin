@@ -17,11 +17,12 @@
         "declarativeContent",
         "activeTab",
         "notifications",
-        "http://localhost/*"
+        "http://localhost/*",
+        "storage"
     ],
     "background": {
         "scripts": ["background.js"],
-        "persistent": false
+        "persistent": true
     },
     "commands": {
         "translate": {

@@ -26,6 +26,7 @@ def get_translation(word, src, dest='en'):
                 translation['extra_similarity'].append([item['word'], 
                                                      [i for i in item.get("tags", []) if i != 'syn'], 
                                                      item['score']])
+    print(translation)
     return translation
 
 

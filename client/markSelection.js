@@ -93,6 +93,8 @@ function createSelection(doc, response) {
     selectionEl.style.border = "solid darkblue 1px";
     selectionEl.style.backgroundColor = "lightgoldenrodyellow";
     selectionEl.style.position = "absolute";
+    selectionEl.style.paddingLeft = "2px";
+    selectionEl.style.textAlign = "left";
     doc.body.appendChild(selectionEl);
 
     closeBtn = doc.createElement("span");
@@ -108,10 +110,13 @@ function createSelection(doc, response) {
 
     target = doc.createElement("p");
     target.innerText = response['res']['target'];
+    target.style.fontWeight = "bold";
+    target.style.fontSize = "large";
     selectionEl.appendChild(target);
 
     result = doc.createElement("p");
     result.innerText = response['res']['result'];
+    result.style.fontWeight = "bold"
     result.onclick = function() {
         replaceSelectedText(range, response['res']['result']);
         this.parentNode.parentNode.removeChild(this.parentNode);
@@ -122,8 +127,9 @@ function createSelection(doc, response) {
     response['res']['from_google'].forEach(item => {
         div = doc.createElement("div");
 
-        head = doc.createElement("p");
+        head = doc.createElement("scan");
         head.innerText = item[0];
+        head.style.fontWeight = "bold";
         div.appendChild(head);
 
         item[1].forEach(subItem => {
@@ -142,6 +148,7 @@ function createSelection(doc, response) {
             };
             div.appendChild(subDiv);
         });
+        div.style.marginBottom = "5px";
         fromGoogle.appendChild(div);
     });
     selectionEl.appendChild(fromGoogle);

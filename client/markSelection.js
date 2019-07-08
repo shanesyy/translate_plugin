@@ -94,7 +94,9 @@ function createSelection(doc, response) {
     selectionEl.style.backgroundColor = "lightgoldenrodyellow";
     selectionEl.style.position = "absolute";
     selectionEl.style.paddingLeft = "2px";
+    selectionEl.style.paddingRight= "2px";
     selectionEl.style.textAlign = "left";
+    selectionEl.style.zIndex = 10000;
     doc.body.appendChild(selectionEl);
 
     closeBtn = doc.createElement("span");

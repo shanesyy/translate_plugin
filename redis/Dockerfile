@@ -1,0 +1,7 @@
+from redis:4.0.14-alpine
+
+RUN apk add --no-cache bash
+
+COPY redis.conf /usr/local/etc/redis.conf
+
+CMD ["redis-server", "/usr/local/etc/redis.conf"]

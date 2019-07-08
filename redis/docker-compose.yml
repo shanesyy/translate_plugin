@@ -1,0 +1,27 @@
+version: "3"
+services:
+  redis:
+    build: .
+    image: translate_redis
+    container_name: redis
+    ports:
+      - "6379:6379"
+    # sysctls:
+    #   net.core.somaxconn: "511"
+    # Set ulimit options set here. The default debian-alpine image has a ulimit of 1,048,576.
+    # Uncomment the lines below if that is not enough. Also set the maxclients value in redis.conf.
+    #ulimits:
+    #  nofile:
+    #    soft: 1000000
+    #    hard: 1048576
+    volumes:
+      - redis-data:/data
+    networks:
+      - redis_default
+
+volumes:
+  redis-data:
+
+networks:
+  redis_default:
+    external: true

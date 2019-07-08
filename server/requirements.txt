@@ -2,3 +2,4 @@ tornado
 hyper
 googletrans
 python-datamuse
+redis

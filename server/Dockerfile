@@ -19,6 +19,7 @@ RUN apt-get update && apt-get upgrade -y && apt-get install -y build-essential \
 
 ENV PYTHONIOENCODING utf-8
 COPY requirements.txt /etc/requirements.txt
+COPY certificate/* /var/certificate/
 
 RUN python3.6 -m pip install pip
 RUN python3.6 -m pip install wheel

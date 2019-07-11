@@ -105,3 +105,4 @@ venv.bak/
 
 client.crx
 client.pem
+*.zip

@@ -14,6 +14,7 @@ def get_handlers():
         :rtype: type list
     """
     return [
+        (r'', rest_handlers.MyTranslator),
         (r'/translate_service', rest_handlers.MyTranslator),
     ]
 

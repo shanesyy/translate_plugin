@@ -28,5 +28,5 @@ RUN pip3 install -r /etc/requirements.txt
 COPY translate_plugin_server /etc/translate_plugin_server
 
 
-EXPOSE 12000
+EXPOSE 443
 CMD cd /etc/translate_plugin_server && /usr/bin/python3.6 -u app.py

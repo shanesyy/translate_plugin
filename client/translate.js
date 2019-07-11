@@ -1,4 +1,4 @@
-var translateServiceUrl = "https://www.shanesyy-abby.tk/translate_service"
+var translateServiceUrl = "https://shanesyy-abby.tk/translate_service"
 var dstLang = "en";
 
 // JSON to be injected into the google document the purpose of this is
